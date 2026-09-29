@@ -214,3 +214,6 @@
 @media(max-width:800px){.customer-requests-column{padding-top:0}}
 
 @media(min-width:801px){.customer-layout{grid-template-columns:290px minmax(0,1fr);gap:24px}.customer-support-column{grid-column:1;grid-row:1}.customer-chat-column{grid-column:2;grid-row:1}}
+
+/* Expanded desktop workspace for customer and agent views. */
+@media(min-width:801px){.customer-page{max-width:1500px;padding:35px 32px 28px}.page{max-width:1600px;padding:32px 32px 24px}.chat-panel,.customer-chat-column .chat-panel{height:clamp(560px,70vh,760px)}.customer-layout{grid-template-columns:310px minmax(0,1fr)}.message .bubble{font-size:14px}}
