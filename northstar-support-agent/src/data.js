@@ -15,3 +15,13 @@ export const customers = [
   {id:'C-3321',name:'Jordan Lee',email:'jordan.lee@example.com',tier:'Plus',orders:[{id:'NS-20319',product:'Commuter Tech Organizer',date:'Sep 20, 2026',status:'Delivered',eta:'Sep 26, 2026',tracking:'1Z-DEMO-20319',total:'$46.00'}]}
 ];
 export const scenarios=[{title:'Technical support',description:'Troubleshoot a device or app issue',prompt:'I need technical support. My device won’t connect.'},{title:'Where is my order?',description:'Check a live-like order record',prompt:'Where is my order NS-20481?'},{title:'Can I return this?',description:'Find the return policy',prompt:'What is your return policy?'},{title:'Cancel my order',description:'Test a fulfillment constraint',prompt:'Can I cancel order NS-20512?'},{title:'Talk to a person',description:'See the escalation handoff',prompt:'I need to talk to a human about a duplicate charge.'}];
+
+scenarios.push(
+ {title:'Shipping times',description:'Compare standard and express delivery',prompt:'How long does shipping take?'},
+ {title:'Refund timing',description:'Understand when a refund arrives',prompt:'How long does a refund take?'},
+ {title:'Payment issue',description:'Get help with a pending payment',prompt:'I have a payment issue.'},
+ {title:'Warranty help',description:'Check product warranty coverage',prompt:'What does the warranty cover?'},
+ {title:'Account help',description:'Update account details',prompt:'How do I update my account email?'},
+ {title:'Login help',description:'Troubleshoot signing in',prompt:'I cannot log in.'},
+ {title:'App error',description:'Troubleshoot an app problem',prompt:'My app keeps crashing.'}
+);
