@@ -120,3 +120,44 @@
 @media(max-width:1050px){.inbox-grid{grid-template-columns:minmax(240px,290px) minmax(0,1fr)}.ticket-controls{grid-template-columns:1fr}.ticket-detail{padding:18px}}
 @media(max-width:750px){.inbox-grid{grid-template-columns:1fr}.inbox-list{position:static}.ticket-rows{max-height:320px}.ticket-controls{grid-template-columns:repeat(3,1fr)}.detail-empty{padding:40px 15px}}
 @media(max-width:620px){.mobile-navigation{display:block;max-width:140px;border:1px solid #e5e8ed;border-radius:7px;background:#fff;padding:7px;color:#4e5865;font-size:11px}.top-actions{gap:10px}.top-avatar{display:none}.breadcrumbs{font-size:10px}.ticket-controls{grid-template-columns:1fr}.ticket-detail-heading h2{font-size:17px}.inbox-notice{font-size:11px}}
+
+/* Separate customer and agent perspectives */
+.view-switcher{display:flex;gap:3px;padding:4px;border:1px solid #e4e1f5;background:#f7f6fc;border-radius:9px;flex-shrink:0}
+.view-switcher button{border:0;background:transparent;color:#7c7595;font-size:11px;font-weight:800;padding:8px 12px;border-radius:6px;white-space:nowrap}
+.view-switcher button.active{background:#fff;color:#4b42b6;box-shadow:0 1px 5px #26227b12}
+.view-switcher button:focus-visible{outline:2px solid #948ce4;outline-offset:2px}
+.customer-shell{min-height:100vh;background:#f7f8fa}
+.customer-header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100% - 1120px)/2));background:#fff;border-bottom:1px solid #e9ebef;gap:20px}
+.customer-header .brand{padding:0}
+.customer-page{max-width:1120px;padding:35px 24px 24px;margin:auto}
+.customer-intro{margin-bottom:24px}
+.customer-intro h1{font:800 32px/1.25 Manrope,sans-serif;color:#1c2633;letter-spacing:-1.2px;margin:12px 0 10px}
+.customer-intro>p{font-size:14px;color:#8893a0;line-height:1.6;margin:0}
+.customer-demo-note{font-size:11px;color:#968eae;margin-top:10px;line-height:1.6}
+.customer-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:24px;align-items:start}
+.customer-chat-column{min-width:0}
+.customer-chat-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;font-size:11px;color:#8893a0}
+.customer-chat-tools>span{display:flex;align-items:center;gap:8px}
+.customer-chat-column .chat-panel{height:470px}
+.customer-quick-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.customer-quick-actions .outline-btn{font-size:11px;padding:9px 11px}
+.customer-support-column{display:grid;gap:16px;padding-top:48px}
+.customer-request{border-top:1px solid #edf0f2;padding:14px 0}
+.customer-request:first-of-type{border-top:0}
+.customer-request>div{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.customer-request strong{font-size:10px;color:#655ac0}
+.customer-request p{font-size:12px;line-height:1.6;color:#4e5865;margin:8px 0;overflow-wrap:anywhere}
+.customer-request small{font-size:10px;color:#9aa2ae}
+.customer-help-copy{font-size:12px;color:#8893a0;line-height:1.7;margin:0}
+.customer-help-card{padding:20px;border-radius:12px;background:#eeedfa;color:#6a6198}
+.customer-help-card>span{font-size:24px;color:#8276e7}
+.customer-help-card h2{font:800 14px Manrope,sans-serif;color:#5148ad;margin:10px 0}
+.customer-help-card p{font-size:12px;line-height:1.7;margin:0}
+.customer-footer{font-size:10px;color:#9aa2ae;line-height:1.7;margin-top:25px}
+.customer-source{margin-top:16px}
+.customer-source h2{font:800 15px Manrope,sans-serif;color:#404857;margin:0 0 10px}
+.customer-source p{font-size:12px;color:#66717f;line-height:1.7;margin:0}
+.customer-source .card-title{gap:12px}
+@media(max-width:1050px){.top-actions .top-live,.top-actions .top-avatar{display:none}.topbar{padding:0 20px}.view-switcher button{padding:7px 9px}}
+@media(max-width:800px){.customer-layout{grid-template-columns:1fr}.customer-support-column{grid-template-columns:1fr 1fr;padding-top:0}.customer-help-card{grid-column:1/-1}}
+@media(max-width:620px){.customer-header{height:74px;padding:0 15px;gap:10px}.customer-header .brand small{font-size:8px;letter-spacing:1px}.customer-header .brand strong{font-size:17px}.customer-header .brandmark{width:30px;height:30px}.customer-header .brand{gap:7px}.view-switcher button{font-size:10px;padding:7px 8px}.customer-page{padding:25px 15px 20px}.customer-intro h1{font-size:28px}.customer-support-column{grid-template-columns:1fr}.customer-chat-column .chat-panel{height:440px}.customer-chat-tools .outline-btn{font-size:10px}.customer-quick-actions .outline-btn{font-size:10px}.customer-quick-actions .outline-btn:first-letter{font-size:10px}.topbar{flex-wrap:wrap;height:auto;min-height:65px;padding:12px 15px;gap:8px}.top-actions{gap:6px}.mobile-navigation{max-width:115px}}
