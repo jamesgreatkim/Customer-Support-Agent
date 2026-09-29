@@ -217,3 +217,20 @@
 
 /* Expanded desktop workspace for customer and agent views. */
 @media(min-width:801px){.customer-page{max-width:1500px;padding:35px 32px 28px}.page{max-width:1600px;padding:32px 32px 24px}.chat-panel,.customer-chat-column .chat-panel{height:clamp(560px,70vh,760px)}.customer-layout{grid-template-columns:310px minmax(0,1fr)}.message .bubble{font-size:14px}}
+
+/* Larger, readable text throughout both support views. */
+.customer-shell,.shell{font-size:16px}
+.bubble,.message .bubble{font-size:16px!important;line-height:1.65}
+#message-input{font-size:16px;line-height:1.5}
+.info-card p,.customer-request p,.customer-help-copy,.customer-help-card p,.customer-source p{font-size:15px;line-height:1.6}
+.order-row strong,.customer-row strong,.customer-request strong,.panel-header strong{font-size:15px}
+.order-row small,.customer-row small,.customer-request small,.panel-header small,.card-foot,.customer-demo-note,.customer-footer,.composer-foot,.message-time{font-size:13px;line-height:1.5}
+.outline-btn,.primary-btn,.navitem,.view-switcher button,.scenario strong,.request-chat-link{font-size:14px!important}
+.card-title,.mini-heading,.eyebrow,.order-status,.ticket-badge,.tier{font-size:12px}
+.customer-intro p,.page-heading p{font-size:16px;line-height:1.6}
+.ticket-detail p,.ticket-detail li,.ticket-detail textarea,.ticket-detail select,.ticket-detail label,.ticket-summary,.ticket-transcript,.article p{font-size:15px;line-height:1.6}
+.ticket-row,.ticket-row p,.ticket-row strong,.ticket-controls select,.inbox-notice{font-size:14px}
+.ticket-row small,.scenario small,.subtle,.ticket-note{font-size:13px}
+.chat-resolution p,.satisfaction-survey p,.survey-comment-label,.survey-confirmation{font-size:15px;line-height:1.6}
+.satisfaction-survey legend{font-size:17px}.satisfaction-survey small{font-size:12px}
+@media(max-width:620px){.bubble,.message .bubble,#message-input{font-size:15px!important}.customer-quick-actions .outline-btn{font-size:13px!important}}
