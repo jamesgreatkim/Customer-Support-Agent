@@ -45,6 +45,7 @@ function advance(input, state){
   }
   if(resolved.test(input)&&! /\b(not|isn.t|hasn.t|never|still)\b/i.test(input)&&state?.topic){return {state:{...current,done:true},result:{reply:`Glad that resolved it. We worked through **${info.title.toLowerCase()}**. You can start another support question whenever you need.`,sources:[info.source],escalate:false,technical:{...current,status:'resolved'}}};}
   if(current.done)return {state:current,result:{reply:'The technical handoff is ready. Select **Create handoff** below to preserve the issue and troubleshooting context. No real specialist is contacted in this demo.',sources:[info.source],escalate:true,technical:{...current,status:'escalated'}}};
+  if(state?.topic===nextTopic&&/what does|explain|don.t understand|which|how do|what is|what.s/i.test(input))return {state:current,result:{reply:`Let’s stay on this check: ${info.steps[current.step]}`,sources:[info.source],escalate:false,technical:{...current,status:'in-progress'}}};
   let step=current.step;
   // First turn presents the first check. Each subsequent troubleshooting
   // reply records the previous check and advances one bounded step.
