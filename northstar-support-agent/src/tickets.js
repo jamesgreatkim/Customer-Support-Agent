@@ -1,6 +1,6 @@
 export const ticketStatuses = ['Open', 'In progress', 'Resolved'];
 export const ticketPriorities = ['Low', 'Normal', 'High', 'Urgent'];
-export const ticketAssignees = ['Unassigned', 'You', 'Technical support', 'Billing specialist'];
+export const ticketAssignees = ['Unassigned', 'You', 'Technical support', 'Billing specialist', 'Sales Specialist', 'Compliance Specialist', 'Customer Success', 'Orders & Shipping', 'Returns & Refunds', 'Account & Security', 'Product Specialist', 'Support Manager'];
 const storageKey = 'northstar-demo-tickets-v1';
 function generateTicketId() {
   const cryptoApi = globalThis.crypto;
