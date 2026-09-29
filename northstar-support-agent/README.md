@@ -68,3 +68,24 @@ Run `npm test` to check connectivity progression, resolution, sensitive login es
 ## Current limits
 
 This is a portfolio simulation, not a production help desk. For a production system, add authentication, real CRM/order APIs, durable tickets and conversations, rate limiting, monitoring, privacy controls, and an evaluation suite. The optional endpoint sends conversation content to the configured AI provider; only synthetic data should be used in this demo.
+
+
+## Agent Inbox and demo tickets
+
+Version 1.2 adds an Agent Inbox connected to chat escalation. Create a handoff in the Playground, then choose Open in Agent Inbox. Tickets preserve the issue, customer and order context, complete conversation, and technical checks attempted. An agent can search and filter the queue, set priority and assignment, move the case through Open, In progress, and Resolved, reopen it, and add internal notes. Every change appears in the activity log. Add sample ticket creates a clearly labeled fictional example.
+
+Tickets are stored in localStorage in the current browser and are not shared across devices or visitors. This is an admin-style simulation with no authentication, notification, or external ticketing integration. Use fictional data only. When storage is blocked, the interface explains that changes remain in memory only. Clearing browser site data removes the local tickets.
+
+### Inbox walkthrough
+
+1. Start a new conversation and select Technical support.
+2. Reply still not working to each of the three checks.
+3. Create handoff, then select Open in Agent Inbox.
+4. Review the preserved troubleshooting steps and expand Conversation history.
+5. Assign to You, choose High priority, and set In progress.
+6. Add an internal note, then set Resolved.
+7. Refresh the page and open Agent Inbox to confirm the ticket is still present.
+
+### Updating the existing Vercel project
+
+Extract agent-inbox-update.zip. On GitHub open the existing northstar-support-agent directory, then Add file → Upload files. Upload the contents of the extracted update folder into that directory. The src folder must merge with the existing src folder. Avoid uploading the enclosing agent-inbox-update folder. Commit to main with Add agent inbox and ticket workflow. Vercel will build from the configured northstar-support-agent root.
