@@ -41,7 +41,7 @@ function customerView(){
 }
 function currentChatTicket(){return ticket?tickets.find(t=>t.id===ticket.id):null;}
 function chatResolutionView(){
- if(busy||!chatEnded||!messages.length||chatMode==='sales')return '';
+ if(busy||!chatEnded||!messages.length)return '';
  const current=currentChatTicket();
  if(current?.status==='Resolved')return `<div class="chat-resolution"><div class="resolution-heading">✓ ${current.resolutionSource==='AI'?'Issue resolved':'Support request marked resolved'}</div>${current.customerConfirmed?customerSurvey(current):'<p>Did this solve your problem?</p><div class="resolution-actions"><button class="primary-btn" id="confirm-resolution">Yes, resolved</button><button class="outline-btn" id="need-more-help">I still need help</button></div>'}${current.customerConfirmed?'<button class="request-chat-link" id="need-more-help">I still need help · Reopen request</button>':''}</div>`;
  const latest=messages.at(-1);
