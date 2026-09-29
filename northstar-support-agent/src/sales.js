@@ -7,7 +7,7 @@ export const salesQuestions=[
  'Do you have a budget range in mind? You can say “not sure” or “skip”.',
  'When would you like to get started?',
  'What email should be included for a demo sales follow-up? Use a fictional address such as alex@example.com, or say “skip”.',
- 'May I save this qualification summary in this browser’s demo Sales Leads inbox? Say “yes” to save or “no” to decline. No email is sent and no real salesperson is contacted.'
+ 'May I save this qualification summary in this browser’s demo Sales Inbox inbox? Say “yes” to save or “no” to decline. No email is sent and no real salesperson is contacted.'
 ];
 export function salesReply(input,state={step:0,details:{}}){
  const text=String(input).trim().slice(0,1000);const clean=text.toLowerCase();
@@ -15,7 +15,7 @@ export function salesReply(input,state={step:0,details:{}}){
  if(/\b(price|pricing|cost|features|recommend)\b|what.*offer/i.test(text))return {state,reply:'For this portfolio demo, we offer three fictional solution paths: FAQ automation for repetitive questions, guided troubleshooting, and an agent inbox for escalations. There are no real plans or prices. '+salesQuestions[state.step]};
  if(/why|explain|what do you mean/i.test(text))return {state,reply:'These questions help prepare a useful sales summary. You can skip any qualification detail. '+salesQuestions[state.step]};
  if(state.step===6){
-  if(/^(yes|yes please|i agree|save|ok|okay)[!. ]*$/.test(clean))return {state:{...state,done:true,consent:true},save:true,reply:'Thanks! Your demo lead is saved in Agent View → Sales Leads with our conversation and qualification details. No real outreach has been scheduled.'};
+  if(/^(yes|yes please|i agree|save|ok|okay)[!. ]*$/.test(clean))return {state:{...state,done:true,consent:true},save:true,reply:'Thanks! Your demo lead is saved in Agent View → Sales Inbox with our conversation and qualification details. No real outreach has been scheduled.'};
   if(/^(no|no thanks|decline|skip)[!. ]*$/.test(clean))return {state:{...state,done:true,consent:false},reply:'Understood. I haven’t saved a lead or sent anything. You can still explore Support or start a new sales conversation.'};
   return {state,reply:salesQuestions[6]};
  }
