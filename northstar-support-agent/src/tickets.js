@@ -2,7 +2,15 @@ export const ticketStatuses = ['Open', 'In progress', 'Resolved'];
 export const ticketPriorities = ['Low', 'Normal', 'High', 'Urgent'];
 export const ticketAssignees = ['Unassigned', 'You', 'Technical support', 'Billing specialist'];
 const storageKey = 'northstar-demo-tickets-v1';
-export function createTicket({messages, customer, id = `DEMO-${globalThis.crypto?.randomUUID?.().slice(0,8).toUpperCase() || Date.now()}`, now = new Date().toISOString()}) {
+function generateTicketId() {
+  const cryptoApi = globalThis.crypto;
+  if (cryptoApi && typeof cryptoApi.randomUUID === 'function') {
+    return 'DEMO-' + cryptoApi.randomUUID().slice(0,8).toUpperCase();
+  }
+  return 'DEMO-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+}
+export function createTicket({messages, customer, id, now = new Date().toISOString()}) {
+  id = id || generateTicketId();
   const latest = messages.at(-1);
   const technical = latest?.technical;
   const orderId = [...messages].reverse().find(m => m.orderId)?.orderId || null;
