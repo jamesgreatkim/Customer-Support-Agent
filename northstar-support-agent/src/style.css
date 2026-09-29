@@ -161,3 +161,32 @@
 @media(max-width:1050px){.top-actions .top-live,.top-actions .top-avatar{display:none}.topbar{padding:0 20px}.view-switcher button{padding:7px 9px}}
 @media(max-width:800px){.customer-layout{grid-template-columns:1fr}.customer-support-column{grid-template-columns:1fr 1fr;padding-top:0}.customer-help-card{grid-column:1/-1}}
 @media(max-width:620px){.customer-header{height:74px;padding:0 15px;gap:10px}.customer-header .brand small{font-size:8px;letter-spacing:1px}.customer-header .brand strong{font-size:17px}.customer-header .brandmark{width:30px;height:30px}.customer-header .brand{gap:7px}.view-switcher button{font-size:10px;padding:7px 8px}.customer-page{padding:25px 15px 20px}.customer-intro h1{font-size:28px}.customer-support-column{grid-template-columns:1fr}.customer-chat-column .chat-panel{height:440px}.customer-chat-tools .outline-btn{font-size:10px}.customer-quick-actions .outline-btn{font-size:10px}.customer-quick-actions .outline-btn:first-letter{font-size:10px}.topbar{flex-wrap:wrap;height:auto;min-height:65px;padding:12px 15px;gap:8px}.top-actions{gap:6px}.mobile-navigation{max-width:115px}}
+
+/* Customer satisfaction survey */
+.satisfaction-survey{margin-top:16px;padding:15px 12px;border:1px solid #e4e1f5;background:#faf9ff;border-radius:9px}
+.satisfaction-survey fieldset{border:0;margin:0 0 14px;padding:0;min-width:0}
+.satisfaction-survey legend{font:800 12px/1.5 Manrope,sans-serif;color:#5148ad;padding:0}
+.satisfaction-survey fieldset p{font-size:10px;color:#8893a0;line-height:1.6;margin:7px 0 12px}
+.survey-ratings{display:flex;gap:7px;justify-content:space-between}
+.rating-option{display:flex;flex:1;position:relative;cursor:pointer}
+.rating-option input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.rating-option span{display:grid;place-items:center;width:100%;height:36px;border:1px solid #e4e1f5;background:#fff;color:#655ac0;border-radius:7px;font-size:13px;font-weight:800}
+.rating-option input:checked+span{background:#4b42b6;color:#fff;border-color:#4b42b6}
+.rating-option input:focus-visible+span{outline:2px solid #948ce4;outline-offset:3px}
+.satisfaction-survey .survey-comment-label{color:#66717f;font-size:11px;letter-spacing:0;font-weight:700;display:block;margin-bottom:7px}
+.survey-comment-label span{font-weight:400;color:#9aa2ae}
+.satisfaction-survey textarea{display:block;width:100%;border:1px solid #e5e8ed;background:#fff;border-radius:7px;padding:9px;font:inherit;font-size:11px;line-height:1.6;color:#4e5865;resize:vertical;margin-bottom:12px}
+.satisfaction-survey textarea:focus{outline:2px solid #948ce4;outline-offset:2px}
+.satisfaction-survey .primary-btn{width:100%;font-size:11px}
+.satisfaction-survey>small{display:block;margin-top:9px;font-size:9px;color:#9aa2ae;line-height:1.6}
+.survey-confirmation{margin-top:14px;padding:12px;background:#e5f7ef;border-radius:8px;color:#29805d;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.survey-confirmation strong,.survey-confirmation span{display:block}
+.survey-confirmation span{margin-top:4px}
+.satisfaction-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border:1px solid #e4e1f5;background:#f8f7ff;border-radius:11px;padding:18px 20px;margin-bottom:20px}
+.satisfaction-summary>div>span{display:block;font-size:9px;letter-spacing:1px;font-weight:800;color:#968eae}
+.satisfaction-summary strong{font:800 23px Manrope,sans-serif;color:#5148ad;display:block;margin:8px 0 5px}
+.satisfaction-summary small{color:#8893a0;font-size:10px;line-height:1.6}
+.agent-feedback{border-left:3px solid #c2bcf1;background:#faf9ff;padding:12px}
+.agent-feedback>strong{font:800 20px Manrope,sans-serif;color:#5148ad}
+.agent-feedback small{display:block;font-size:10px;color:#9aa2ae;margin-top:4px}
+@media(max-width:620px){.satisfaction-summary{gap:15px;padding:16px;grid-template-columns:1fr}.satisfaction-summary>div{border-bottom:1px solid #e4e1f5;padding-bottom:12px}.satisfaction-summary>div:last-child{border:0;padding:0}.satisfaction-summary strong{font-size:21px}}

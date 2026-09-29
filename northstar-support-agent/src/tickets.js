@@ -56,3 +56,16 @@ export function sampleTicket(customer) {
       technical:{issue:'Wireless charging pad does not charge',attempts:[{step:'Check cable, power adapter, and phone placement.',customerReply:'Cable and placement checked; still does not charge.'}]}}];
   return {...createTicket({messages,customer}),sample:true};
 }
+
+export function submitTicketFeedback(ticket, {rating, comment = '', customerId}, now = new Date().toISOString()) {
+  const score = Number(rating);
+  if (ticket.status !== 'Resolved' || ticket.feedback || customerId !== ticket.customer.id || !Number.isInteger(score) || score < 1 || score > 5) return ticket;
+  return {...ticket,updatedAt:now,feedback:{rating:score,comment:String(comment).trim().slice(0,1000),submittedAt:now},
+    activity:[...ticket.activity,{at:now,text:`Customer submitted a satisfaction rating of ${score}/5.`}]};
+}
+export function satisfactionSummary(tickets) {
+  const feedback=tickets.map(t=>t.feedback).filter(f=>f && Number.isInteger(f.rating) && f.rating>=1 && f.rating<=5);
+  const count=feedback.length;
+  return {count,average:count?feedback.reduce((total,f)=>total+f.rating,0)/count:null,
+    satisfiedPercent:count?Math.round(feedback.filter(f=>f.rating>=4).length/count*100):null};
+}
