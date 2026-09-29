@@ -5,9 +5,10 @@ A polished portfolio demo of a customer support workflow. Visitors can chat with
 ## Live-demo features
 
 - **Support chat:** contextual answers to shipping, returns, cancellation, billing, warranty, and account questions.
-- **Grounded content:** six visible knowledge articles; response source chips link to their articles.
+- **Grounded content:** nine visible knowledge articles; response source chips link to their articles.
 - **Order lookup:** five synthetic orders across three customers. Try `NS-20481` (in transit) or `NS-20512` (processing).
 - **Conversation context:** follow up with “Can I cancel it?” after asking about an order.
+- **Technical support:** three guided checks for device connectivity, login, and app errors; source articles, explicit resolution, and a handoff containing the issue and checks attempted. Technical checks are deterministic in both demo and hosted modes.
 - **Human escalation:** explicit human requests, billing disputes, and some order actions offer a simulated handoff and summary. No ticket is actually sent.
 - **Optional hosted AI:** a Vercel serverless endpoint uses OpenAI when configured; the app falls back to a deterministic demo agent if unavailable.
 
@@ -47,7 +48,7 @@ The app is fully interactive without an API key. Hosted AI incurs provider charg
 
 ## Architecture
 
-`src/main.js` renders the interface and manages the conversation; `src/data.js` contains synthetic records and policies; `src/agent.js` handles local lookup, retrieval, follow-up context, and escalation; `api/chat.js` is the optional Vercel serverless AI adapter. The API receives the recent conversation, selects relevant policy context and an exact matching demo order, then instructs the model to stay within those facts. If the endpoint is unconfigured or fails, the client uses the local agent.
+`src/main.js` renders the interface and manages the conversation; `src/data.js` contains synthetic records and policies; `src/agent.js` handles local lookup, retrieval, follow-up context, and escalation; `src/technical.js` provides the shared guided troubleshooting flow; `api/chat.js` is the optional Vercel serverless AI adapter. The API receives the recent conversation, selects relevant policy context and an exact matching demo order, then instructs the model to stay within those facts. If the endpoint is unconfigured or fails, the client uses the local agent.
 
 ## Portfolio walkthrough
 
@@ -55,6 +56,14 @@ The app is fully interactive without an API key. Hosted AI incurs provider charg
 2. Select **Can I return this?**, then open the `KB-102` source chip.
 3. Select **Talk to a person**, then click **Create handoff** to show the preserved issue summary.
 4. Explore **Customers** and **Knowledge base** to show where the responses come from.
+
+## Technical support walkthrough
+
+Select **Technical support**, then reply `still not working` after each of the three checks. Click **Create handoff** to see the original issue and checks with customer results. Alternatively reply `resolved` to close troubleshooting or `human` to escalate early. Start a new conversation for `I cannot log in` or `My app crashes`.
+
+The checks are general fictional-demo guidance. Nova cannot inspect or control a device, reset accounts, verify identity, or create a real ticket. A simple `yes` does not close troubleshooting; use an explicit result such as `resolved`.
+
+Run `npm test` to check connectivity progression, resolution, sensitive login escalation, topic switching, and the technical serverless route without an AI key.
 
 ## Current limits
 
