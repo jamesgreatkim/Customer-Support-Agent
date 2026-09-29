@@ -2,7 +2,7 @@
 // fallback and the serverless endpoint follow the same steps.
 export const technicalTopics = {
   connection: {title:'Device connectivity',source:'KB-107',steps:[
-    'Check that the device is powered on and charged, and that Bluetooth is enabled on your phone or computer. Keep the devices nearby. What device and operating system are you using, and does the device appear in your Bluetooth list?',
+    'Check that the device is powered on and charged, and that Bluetooth is enabled on your phone or computer. Keep the devices nearby. Does the accessory appear in your Bluetooth list?',
     'Restart the accessory and toggle Bluetooth off and on on your phone or computer. Close and reopen the companion app, if you use one. Try connecting again. Does it connect now?',
     'If you have previously paired this accessory, remove only that accessory from the Bluetooth list, then pair it again using its manufacturer’s instructions. Check whether it is already connected to another device. What happens when you retry?'
   ]},
@@ -12,7 +12,7 @@ export const technicalTopics = {
     'Check for a password-reset email in spam or junk folders if you requested one. If you are locked out, cannot receive a verification code, or need account verification, a human specialist must review access. Did the official reset or alternate browser resolve it?'
   ]},
   app: {title:'App and error troubleshooting',source:'KB-109',steps:[
-    'Save any work, then close and reopen the app or refresh the page. What app or page is affected, what is the exact error message, and what device or browser are you using? Leave out personal information.',
+    'Save any work, then close and reopen the app or refresh the page. What error message do you see? Leave out personal information.',
     'Check your internet connection and try the page in a private window or another browser. Install an available app update from the official store if applicable. Does the same error still appear?',
     'Record the error code, the action that triggers it, and the steps you tried. Avoid reinstalling, clearing app data, or factory-resetting a device unless its official instructions explain the effects and your data is backed up. Did the previous checks resolve the issue?'
   ]}
@@ -43,20 +43,20 @@ function advance(input, state){
   if(human.test(input)||/locked out|cannot receive|can.t receive|compromised|hacked/i.test(input)){
     return finish(current,info,attempts,'This requires a human specialist to review access or continue troubleshooting.');
   }
-  if(resolved.test(input)&&state?.topic){return {state:{...current,done:true},result:{reply:`Glad that resolved it. We worked through **${info.title.toLowerCase()}**. You can start another support question whenever you need.`,sources:[info.source],escalate:false,technical:{...current,status:'resolved'}}};}
+  if(resolved.test(input)&&! /\b(not|isn.t|hasn.t|never|still)\b/i.test(input)&&state?.topic){return {state:{...current,done:true},result:{reply:`Glad that resolved it. We worked through **${info.title.toLowerCase()}**. You can start another support question whenever you need.`,sources:[info.source],escalate:false,technical:{...current,status:'resolved'}}};}
   if(current.done)return {state:current,result:{reply:'The technical handoff is ready. Select **Create handoff** below to preserve the issue and troubleshooting context. No real specialist is contacted in this demo.',sources:[info.source],escalate:true,technical:{...current,status:'escalated'}}};
   let step=current.step;
   // First turn presents the first check. Each subsequent troubleshooting
   // reply records the previous check and advances one bounded step.
   if(state?.topic===nextTopic&&!generic){
     attempts.push({step:info.steps[step],customerReply:input});
-    if(step>=info.steps.length-1)return finish(current,info,attempts,'The guided checks are complete. I cannot verify or repair the device from here.');
+    if(step>=info.steps.length-1)return finish(current,info,attempts,'Thanks for sticking with those checks. Since the problem is still happening, a specialist is the best next step.');
     step++;
   }
   const next={topic:nextTopic,step,attempts,issue:current.issue};
-  return {state:next,result:{reply:`**${info.title} · Check ${step+1} of ${info.steps.length}**\n\n${info.steps[step]}\n\n${step===0?'These are general demo checks. ':''}Tell me the result, or say **“still not working”**, **“resolved”**, or **“human”**.`,sources:[info.source],escalate:false,technical:{...next,status:'in-progress'}}};
+  return {state:next,result:{reply:`${step===0?'Let’s work through this together.':`Thanks for trying that. ${attempts.length>1?'We’ve tried '+attempts.length+' checks so far. ':''}Let’s try the next step.`}\n\n**${info.title} · Check ${step+1} of ${info.steps.length}**\n\n${info.steps[step]}\n\n${step===0?'I can guide you through these general checks, although I can’t inspect your device.':''}`,sources:[info.source],escalate:false,technical:{...next,status:'in-progress'}}};
 }
-function finish(current, info, attempts, reason){const next={...current,attempts,done:true};return {state:next,result:{reply:`${reason} I can prepare a **technical support handoff** with your issue and the checks attempted. Select **Create handoff** below. This demo does not contact a real support team.`,sources:[info.source],escalate:true,technical:{...next,status:'escalated'}}};}
+function finish(current, info, attempts, reason){const next={...current,attempts,done:true};return {state:next,result:{reply:`${reason} I can prepare a **technical support handoff** with your issue and the checks we’ve already tried, so you won’t have to repeat them. Select **Create handoff** below. This demo does not contact a real support team.`,sources:[info.source],escalate:true,technical:{...next,status:'escalated'}}};}
 export function respondTechnical(input,history=[]){
   const previous=[...history];
   // The caller may include the newly submitted user message in history.
