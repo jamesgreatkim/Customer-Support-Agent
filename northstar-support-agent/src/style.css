@@ -263,3 +263,10 @@
 .sidebar .brand small{display:block;font-size:12px;line-height:1.5;letter-spacing:1.5px;margin-top:5px;color:#596174}
 @media(min-width:621px) and (max-width:800px){.customer-header{padding-left:max(24px,calc((100% - 1120px)/2 + 24px));padding-right:24px}}
 @media(max-width:620px){.customer-header{padding-left:15px;padding-right:15px}}
+
+/* Keep the desktop light palette on mobile and native browser controls. */
+:root{color-scheme:only light}
+html,body{background:#f7f8fa;color:#1f2935}
+button,input,select,textarea{color:inherit}
+input,select,textarea{color-scheme:only light}
+button{-webkit-tap-highlight-color:rgba(102,89,205,.12)}
