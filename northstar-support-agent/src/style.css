@@ -270,3 +270,7 @@ html,body{background:#f7f8fa;color:#1f2935}
 button,input,select,textarea{color:inherit}
 input,select,textarea{color-scheme:only light}
 button{-webkit-tap-highlight-color:rgba(102,89,205,.12)}
+
+/* Vector stars preserve the same colors on iOS and desktop. */
+.solution-star{width:1em;height:1em;display:inline-block;vertical-align:middle;flex-shrink:0}
+.brandmark .solution-star,.agent-avatar .solution-star,.message-avatar .solution-star{display:block}
