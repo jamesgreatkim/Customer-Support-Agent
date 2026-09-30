@@ -243,3 +243,11 @@
 
 /* Improve chat response status readability in both views. */
 .composer-foot > span:first-child{color:#b91c1c;font-weight:700}
+
+/* Larger branding aligned to the left edge of the customer header. */
+.customer-header{height:108px;padding:0 16px}
+.customer-header .brand{gap:14px;padding:0}
+.customer-header .brandmark{width:64px;height:64px;border-radius:16px;font-size:44px;flex-shrink:0}
+.customer-header .brand strong{font-size:32px;line-height:1.15;letter-spacing:-1px}
+.customer-header .brand small{font-size:13px;line-height:1.5;letter-spacing:2px;margin-top:5px;color:#596174}
+@media(max-width:620px){.customer-header{height:auto;min-height:96px;padding:16px 12px;flex-wrap:wrap;gap:12px}.customer-header .brandmark{width:52px;height:52px;font-size:36px}.customer-header .brand strong{font-size:26px}.customer-header .brand small{font-size:11px;letter-spacing:1.6px}}
