@@ -23,6 +23,7 @@ function topicOf(text){
 }
 export function respond(input,history=[]){
  const originalInput=String(input||'').trim();
+ if(/what.*questions.*(?:ask|answer)|what can you (?:do|help)|how can you help/i.test(originalInput))return {reply:'You can ask about your orders, shipping, returns, refunds, billing, login problems, or technical issues. I can also explain our demo business solutions and help prepare a sales inquiry. What would you like help with?',sources:[]};
  input=originalInput.replace(/[’‘]/g,"'");
  const prior=[...history];if(prior.at(-1)?.role==='user'&&prior.at(-1).content.replace(/[’‘]/g,"'")===input)prior.pop();
  const previous=[...prior].reverse().find(m=>m.role==='assistant');

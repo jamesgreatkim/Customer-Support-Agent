@@ -19,7 +19,7 @@ function modeSelector(){return '';}
 function switchMode(next){if(busy||next===chatMode)return;sessions[chatMode]={messages,ticket,chatEnded};chatMode=next;const saved=sessions[next]||{messages:[],ticket:null,chatEnded:false};messages=saved.messages;ticket=saved.ticket;chatEnded=saved.chatEnded;customerArticle=null;render();scroll();}
 function routeSales(input){
  const inquiryCategory=/pricing|price|plans|cost/i.test(input)?'Pricing inquiry':/demo/i.test(input)?'Demo request':/solutions|features|offer/i.test(input)?'Product question':'Lead qualification';
- const wantsSales=/\b(sales|pricing|plans|buy|purchase|demo|business solution|support solution|automate|automation)\b|support.*(?:business|store|company)|(?:business|store|company).*(?:support|help)/i.test(input);
+ const wantsSales=/\b(sales|pricing|plans|buy|purchase|demo|business solutions?|support solutions?|automate|automation)\b|support.*(?:business|store|company)|(?:business|store|company).*(?:support|help)/i.test(input);
  const wantsSupport=/\b(order|refund|return|shipping|tracking|warranty|billing|login|password|bluetooth|technical)\b|NS[- ]?\d{5}|app.*(?:crash|error)|device.*connect/i.test(input);
  if(wantsSupport){chatMode='support';return false;}
  if(wantsSales)salesInquiryCategory=inquiryCategory;
