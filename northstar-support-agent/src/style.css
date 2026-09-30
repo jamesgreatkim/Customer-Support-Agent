@@ -237,3 +237,6 @@
 
 .sales-mode-switch{display:flex;gap:4px;margin-left:auto;order:2;background:#eeedfa;padding:4px;border-radius:10px}.sales-mode-switch button{border:0;background:transparent;color:#373093;font-size:14px;padding:8px 14px;border-radius:7px}.sales-mode-switch button[aria-pressed=true]{background:#4438a5;color:white}.sales-summary{margin-top:18px}.sales-summary p{margin:8px 0}.sales-summary small{font-size:13px;color:#737d8c}.ticket-detail textarea{display:block;width:100%;margin:10px 0;border:1px solid #dce0e8;border-radius:8px;padding:10px}.ticket-detail select{padding:8px;border:1px solid #dce0e8;border-radius:8px}
 @media(max-width:620px){.sales-mode-switch button{padding:7px 9px;font-size:13px}.panel-header{flex-wrap:wrap}}
+
+/* Light blue Nova responses in both chat views. */
+.message.assistant .bubble{background:#eaf4ff;color:#24364b;border:1px solid #d5e8fc}
