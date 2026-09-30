@@ -251,3 +251,15 @@
 .customer-header .brand strong{font-size:32px;line-height:1.15;letter-spacing:-1px}
 .customer-header .brand small{font-size:13px;line-height:1.5;letter-spacing:2px;margin-top:5px;color:#596174}
 @media(max-width:620px){.customer-header{height:auto;min-height:96px;padding:16px 12px;flex-wrap:wrap;gap:12px}.customer-header .brandmark{width:52px;height:52px;font-size:36px}.customer-header .brand strong{font-size:26px}.customer-header .brand small{font-size:11px;letter-spacing:1.6px}}
+
+/* Align customer branding with the content and enlarge agent branding. */
+.brand-refresh{border:0;background:transparent;color:inherit;text-align:left;text-decoration:none;font:inherit;cursor:pointer}
+.brand-refresh:focus-visible{outline:3px solid #948ce4;outline-offset:5px;border-radius:12px}
+.customer-header{padding-left:max(32px,calc((100% - 1500px)/2 + 32px));padding-right:max(32px,calc((100% - 1500px)/2 + 32px))}
+.sidebar{width:300px}
+.sidebar .brand{gap:14px;padding:0 4px 32px;width:100%}
+.sidebar .brandmark{width:64px;height:64px;border-radius:16px;font-size:44px;flex-shrink:0}
+.sidebar .brand strong{font-size:28px;line-height:1.15;letter-spacing:-1px}
+.sidebar .brand small{display:block;font-size:12px;line-height:1.5;letter-spacing:1.5px;margin-top:5px;color:#596174}
+@media(min-width:621px) and (max-width:800px){.customer-header{padding-left:max(24px,calc((100% - 1120px)/2 + 24px));padding-right:24px}}
+@media(max-width:620px){.customer-header{padding-left:15px;padding-right:15px}}
